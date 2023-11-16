@@ -1,0 +1,19 @@
+int contador = 0;
+int tiempo = 0 ;
+void setup () {
+pinMode(2, INPUT);
+Serial.begin(9600);
+attachInterrupt(0, cero, FALLING);
+
+}
+
+void loop() {
+if (millis()-tiempo > 1000){
+Serial.println(contador);
+tiempo= millis();
+contador = 0;
+}
+}
+void cero(){
+contador++;
+}
